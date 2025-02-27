@@ -157,7 +157,7 @@ def admin_manage_employees():
             
             conn.commit()
             st.success(f"Employee {selected_employee} removed successfully!")
-            st.experimental_rerun()
+            st.rerun()
     else:
         st.info("No employees found.")
     
@@ -471,7 +471,7 @@ def employee_view_tasks(user_id):
                 
                 conn.commit()
                 st.success("Task marked as complete!")
-                st.experimental_rerun()
+                st.rerun()
         else:
             st.info("No pending tasks found.")
     else:
@@ -501,7 +501,7 @@ def main():
             
             if st.button("Logout"):
                 st.session_state.user = None
-                st.experimental_rerun()
+                st.rerun()
         else:
             with st.form("login_form"):
                 st.subheader("Login")
@@ -513,7 +513,7 @@ def main():
                     user = authenticate(username, password)
                     if user:
                         st.session_state.user = user
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.error("Invalid username or password")
     
